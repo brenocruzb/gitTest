@@ -29,13 +29,4 @@
 
 
 
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="@id/text1"
-        app:layout_constraintStart_toEndOf="@id/text1"
-        app:layout_constraintTop_toTopOf="@id/text1" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
