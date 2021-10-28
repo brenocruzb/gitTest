@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Test Application</string>
+    <string name="fact_title">Fact</string>
 </resources>

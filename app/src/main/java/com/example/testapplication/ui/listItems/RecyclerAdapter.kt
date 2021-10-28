@@ -21,8 +21,9 @@ class RecyclerAdapter(private val list: List<Cat>) : RecyclerView.Adapter<Recycl
     }
 
     override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
+        val context = holder.itemView.context
         holder.itemDetail.text = list[position].text
-        holder.itemTitle.text = "Fact"
+        holder.itemTitle.text = context.getString(R.string.fact_title)
         holder.itemImage.setImageResource(R.drawable.image)
     }
 
