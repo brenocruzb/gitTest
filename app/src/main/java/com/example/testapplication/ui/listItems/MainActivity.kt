@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
                 recycler.adapter = adapter
             }, //onNext
             { exception ->
-                //text1.text = exception.message
                 loadScreen(false)
             }, //onError
             {
@@ -44,9 +43,7 @@ class MainActivity : AppCompatActivity() {
         compositeDisposable.add(catsSubscriber)
     }
 
-    private fun loadScreen(loading: Boolean){
-        //text1.isVisible = !loading
-        //text2.isVisible = !loading
+    private fun loadScreen(loading: Boolean) {
         progressBar.isVisible = loading
     }
 
