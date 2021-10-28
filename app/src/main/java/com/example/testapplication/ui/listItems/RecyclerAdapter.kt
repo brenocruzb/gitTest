@@ -27,14 +27,8 @@ class RecyclerAdapter(private val list: List<Cat>) : RecyclerView.Adapter<Recycl
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var itemImage: ImageView
-        var itemTitle: TextView
-        var itemDetail: TextView
-
-        init {
-            itemImage = itemView.item_image
-            itemTitle = itemView.item_title
-            itemDetail = itemView.item_detail
-        }
+        val itemImage: ImageView = itemView.item_image
+        val itemTitle: TextView = itemView.item_title
+        val itemDetail: TextView = itemView.item_detail
     }
 }
