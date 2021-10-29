@@ -16,14 +16,11 @@ class MainActivity : AppCompatActivity() {
 
     private val compositeDisposable = CompositeDisposable()
 
-    private var layoutManager: RecyclerView.LayoutManager? = null;
     private var adapter: RecyclerAdapter? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        layoutManager = LinearLayoutManager(this)
-        recycler.layoutManager = layoutManager
 
         loadScreen(true)
 
