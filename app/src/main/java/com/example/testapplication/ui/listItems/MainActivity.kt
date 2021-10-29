@@ -16,8 +16,6 @@ class MainActivity : AppCompatActivity() {
 
     private val compositeDisposable = CompositeDisposable()
 
-    private var adapter: RecyclerAdapter? = null;
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,8 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         val catsSubscriber = mainViewModel.loadCats(5).subscribe(
             { list ->
-                adapter = RecyclerAdapter(list)
-                recycler.adapter = adapter
+                recycler.adapter = RecyclerAdapter(list)
             }, //onNext
             { exception ->
                 loadScreen(false)
