@@ -21,12 +21,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         loadScreen(true)
+        showError(false)
 
         val catsSubscriber = mainViewModel.loadCats(5).subscribe(
             { list ->
                 recycler.adapter = RecyclerAdapter(list)
             }, //onNext
             { exception ->
+                showError(true)
+                errorText.text = applicationContext.getString(R.string.error) + " " + exception.message
                 loadScreen(false)
             }, //onError
             {
@@ -39,6 +42,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadScreen(loading: Boolean) {
         progressBar.isVisible = loading
+    }
+
+    private fun showError(visibility: Boolean) {
+        errorText.isVisible = visibility
     }
 
     override fun onDestroy() {
