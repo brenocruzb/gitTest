@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             }, //onNext
             { exception ->
                 showError(true)
-                errorText.text = applicationContext.getString(R.string.error) + " " + exception.message
+                errorText.text = "${applicationContext.getString(R.string.error)} ${exception.message}"
                 loadScreen(false)
             }, //onError
             {
