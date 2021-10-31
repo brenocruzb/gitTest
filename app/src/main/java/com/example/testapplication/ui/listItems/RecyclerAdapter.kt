@@ -16,15 +16,15 @@ class RecyclerAdapter(private val list: List<Cat>) : RecyclerView.Adapter<Recycl
         return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return list.size
-    }
+    override fun getItemCount(): Int = list.size
 
     override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
-        val context = holder.itemView.context
-        holder.itemDetail.text = list[position].text
-        holder.itemTitle.text = context.getString(R.string.fact_title)
-        holder.itemImage.setImageResource(R.drawable.image)
+        with(holder) {
+            val context = holder.itemView.context
+            itemDetail.text = list[position].text
+            itemTitle.text = context.getString(R.string.fact_title)
+            itemImage.setImageResource(R.drawable.image)
+        }
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
