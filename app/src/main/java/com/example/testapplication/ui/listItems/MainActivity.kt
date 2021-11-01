@@ -19,14 +19,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         loadScreen(true)
+        showError(false)
 
         val catsSubscriber = mainViewModel.loadCats(5).subscribe(
             { list ->
-                val message = "Message = ${list[0].text}, Size = ${list.size}"
-               text1.text = message
+                recycler.adapter = RecyclerAdapter(list)
             }, //onNext
             { exception ->
-                text1.text = exception.message
+                showError(true)
+                errorText.text = "${applicationContext.getString(R.string.error)} ${exception.message}"
                 loadScreen(false)
             }, //onError
             {
@@ -37,10 +38,12 @@ class MainActivity : AppCompatActivity() {
         compositeDisposable.add(catsSubscriber)
     }
 
-    private fun loadScreen(loading: Boolean){
-        text1.isVisible = !loading
-        text2.isVisible = !loading
+    private fun loadScreen(loading: Boolean) {
         progressBar.isVisible = loading
+    }
+
+    private fun showError(visibility: Boolean) {
+        errorText.isVisible = visibility
     }
 
     override fun onDestroy() {
