@@ -31,7 +31,7 @@ fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
     val contentType = MediaType.get("application/json")
     val gson = GsonBuilder().setLenient().create()
     return Retrofit.Builder()
-        .baseUrl("https://cat-fact.herokuapp.com/")
+        .baseUrl("https://catfact.ninja/")
         .client(okHttpClient)
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
 //        .addConverterFactory(Json.asConverterFactory(contentType))

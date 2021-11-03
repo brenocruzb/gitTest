@@ -7,10 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testapplication.R
-import com.example.testapplication.data.model.Cat
+import com.example.testapplication.data.model.CatDataResponse
 import kotlinx.android.synthetic.main.card_layout.view.*
 
-class RecyclerAdapter(private val list: List<Cat>) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter(private val list: List<CatDataResponse>) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_layout, parent, false)
         return ViewHolder(view)
@@ -21,7 +21,7 @@ class RecyclerAdapter(private val list: List<Cat>) : RecyclerView.Adapter<Recycl
     override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
         with(holder) {
             val context = holder.itemView.context
-            itemDetail.text = list[position].text
+            itemDetail.text = list[position].fact
             itemTitle.text = context.getString(R.string.fact_title)
             itemImage.setImageResource(R.drawable.image)
         }
