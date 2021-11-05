@@ -21,10 +21,9 @@ class MainActivity : AppCompatActivity() {
         loadScreen(true)
         showError(false)
 
-        val catsSubscriber = mainViewModel.loadCat().subscribe(
-            { cat ->
-                textCat.text = cat.fact
-//                recycler.adapter = RecyclerAdapter(list)
+        val catsSubscriber = mainViewModel.loadCats().subscribe(
+            { cats ->
+                recycler.adapter = RecyclerAdapter(cats.data)
             }, //onNext
             { exception ->
                 showError(true)
