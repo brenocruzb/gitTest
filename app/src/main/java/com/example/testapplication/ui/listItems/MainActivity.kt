@@ -1,18 +1,20 @@
 package com.example.testapplication.ui.listItems
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.example.testapplication.R
+import com.example.testapplication.entity.model.CatData
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), RecyclerAdapter.OnItemClickListener {
 
     private val mainViewModel by viewModel<MainViewModel>()
-
     private val compositeDisposable = CompositeDisposable()
+    private var list = listOf<CatData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +25,8 @@ class MainActivity : AppCompatActivity() {
 
         val catsSubscriber = mainViewModel.loadCats().subscribe(
             { cats ->
-                recycler.adapter = RecyclerAdapter(cats.data)
+                list = cats.data
+                recycler.adapter = RecyclerAdapter(list, this)
             }, //onNext
             { exception ->
                 showError(true)
@@ -49,5 +52,11 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         compositeDisposable.clear()
+    }
+
+    override fun onItemClick(position: Int) {
+        val intent = Intent(this, FactDetailActivity::class.java)
+        intent.putExtra("fact", list[position])
+        startActivity(intent)
     }
 }
