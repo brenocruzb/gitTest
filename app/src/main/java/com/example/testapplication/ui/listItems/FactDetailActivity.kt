@@ -12,8 +12,8 @@ class FactDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fact_detail)
 
-        val fact = intent.getSerializableExtra(Params.FACT) as CatData
-        fact.let {
+        val fact = intent.getSerializableExtra(Params.FACT) as? CatData
+        fact?.let {
             factText.text = fact.fact
         }
     }
