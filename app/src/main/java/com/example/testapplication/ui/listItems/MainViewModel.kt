@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.example.testapplication.data.model.CatDataResponse
 import com.example.testapplication.data.rest.CatRepository
 import com.example.testapplication.entity.model.CatData
+import com.example.testapplication.entity.model.CatsData
 import io.reactivex.Observable
 
 class MainViewModel(private val catRepository: CatRepository): ViewModel() {
@@ -12,9 +13,9 @@ class MainViewModel(private val catRepository: CatRepository): ViewModel() {
         return catRepository.getCat()
     }
 
-//    fun loadCats(size: Int): Observable<List<CatDataResponse>>{
-//        return catRepository.getCats(size)
-//    }
+    fun loadCats(): Observable<CatsData>{
+        return catRepository.getCats()
+    }
 
     override fun onCleared() {
         super.onCleared()
