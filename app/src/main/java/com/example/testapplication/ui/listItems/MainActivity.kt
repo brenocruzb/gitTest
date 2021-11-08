@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.core.view.isVisible
 import com.example.testapplication.R
 import com.example.testapplication.entity.model.CatData
+import com.example.testapplication.utils.Params
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -56,7 +57,7 @@ class MainActivity : AppCompatActivity(), RecyclerAdapter.OnItemClickListener {
 
     override fun onItemClick(position: Int) {
         val intent = Intent(this, FactDetailActivity::class.java)
-        intent.putExtra("fact", list[position])
+        intent.putExtra(Params.FACT, list[position])
         startActivity(intent)
     }
 }
