@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     private val mainViewModel by viewModel<MainViewModel>()
     private val compositeDisposable = CompositeDisposable()
-    private var list = listOf<CatData>()
+    private val list = mutableListOf<CatData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +26,8 @@ class MainActivity : AppCompatActivity() {
 
         val catsSubscriber = mainViewModel.loadCats().subscribe(
             { cats ->
-                list = cats.data
+                list.clear()
+                list.addAll(cats.data)
                 recycler.adapter = RecyclerAdapter(list, ::onItemClick)
             }, //onNext
             { exception ->
