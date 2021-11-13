@@ -1,8 +1,9 @@
 package com.example.testapplication.di
 
-import com.example.testapplication.data.local.PreferenceManager
+import com.example.testapplication.data.local.LocalFactManager
 import com.example.testapplication.data.rest.CatApi
 import com.example.testapplication.data.rest.CatRepository
+import com.example.testapplication.ui.facts.favorites.FavoritesViewModel
 import com.example.testapplication.ui.facts.list.MainViewModel
 import com.google.gson.GsonBuilder
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -20,7 +21,7 @@ val networkModule = module {
 }
 
 val localModule = module {
-    single { PreferenceManager(get())}
+    single { LocalFactManager(get())}
 }
 
 val catRepositoryModule = module {
@@ -29,6 +30,10 @@ val catRepositoryModule = module {
 
 val mainViewModelModule = module {
     factory { MainViewModel(get()) }
+}
+
+val favoritesViewModelModule = module {
+    factory { FavoritesViewModel(get()) }
 }
 
 fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
