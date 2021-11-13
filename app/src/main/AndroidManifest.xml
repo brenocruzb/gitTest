@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestApplication">
         <activity
-            android:name=".ui.listItems.FactDetailActivity"
+            android:name=".ui.details.FactDetailActivity"
             android:exported="false" />
         <activity android:name=".ui.listItems.MainActivity">
             <intent-filter>
