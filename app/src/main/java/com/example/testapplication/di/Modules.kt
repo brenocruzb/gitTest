@@ -1,12 +1,12 @@
 package com.example.testapplication.di
 
+import com.example.testapplication.data.local.PreferenceManager
 import com.example.testapplication.data.rest.CatApi
 import com.example.testapplication.data.rest.CatRepository
-import com.example.testapplication.ui.listItems.MainViewModel
+import com.example.testapplication.ui.facts.list.MainViewModel
 import com.google.gson.GsonBuilder
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 //import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import kotlinx.serialization.json.Json
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
@@ -17,6 +17,10 @@ val networkModule = module {
     factory { provideOkHttpClient() }
     factory { catApi(get()) }
     single { provideRetrofit(get()) }
+}
+
+val localModule = module {
+    single { PreferenceManager(get())}
 }
 
 val catRepositoryModule = module {

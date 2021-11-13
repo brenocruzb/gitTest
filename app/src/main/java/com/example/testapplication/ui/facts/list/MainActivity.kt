@@ -1,4 +1,4 @@
-package com.example.testapplication.ui.listItems
+package com.example.testapplication.ui.facts.list
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.core.view.isVisible
 import com.example.testapplication.R
 import com.example.testapplication.entity.model.CatData
-import com.example.testapplication.ui.details.FactDetailActivity
+import com.example.testapplication.ui.facts.details.FactDetailActivity
 import com.example.testapplication.utils.Params
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_main.*

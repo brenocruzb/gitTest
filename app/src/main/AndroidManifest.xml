@@ -13,9 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestApplication">
         <activity
-            android:name=".ui.details.FactDetailActivity"
+            android:name="com.example.testapplication.ui.facts.details.FactDetailActivity"
             android:exported="false" />
-        <activity android:name=".ui.listItems.MainActivity">
+        <activity android:name="com.example.testapplication.ui.facts.list.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

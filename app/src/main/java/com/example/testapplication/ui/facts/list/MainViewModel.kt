@@ -1,7 +1,6 @@
-package com.example.testapplication.ui.listItems
+package com.example.testapplication.ui.facts.list
 
 import androidx.lifecycle.ViewModel
-import com.example.testapplication.data.model.CatDataResponse
 import com.example.testapplication.data.rest.CatRepository
 import com.example.testapplication.entity.model.CatData
 import com.example.testapplication.entity.model.CatsData

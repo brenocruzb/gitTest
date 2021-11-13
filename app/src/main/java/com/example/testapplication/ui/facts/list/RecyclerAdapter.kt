@@ -1,4 +1,4 @@
-package com.example.testapplication.ui.listItems
+package com.example.testapplication.ui.facts.list
 
 import android.view.LayoutInflater
 import android.view.View

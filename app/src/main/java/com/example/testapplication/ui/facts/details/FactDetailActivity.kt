@@ -1,4 +1,4 @@
-package com.example.testapplication.ui.details
+package com.example.testapplication.ui.facts.details
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
