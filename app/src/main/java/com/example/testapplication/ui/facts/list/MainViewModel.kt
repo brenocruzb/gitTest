@@ -8,13 +8,9 @@ import io.reactivex.Observable
 
 class MainViewModel(private val catRepository: CatRepository): ViewModel() {
 
-    fun loadCat(): Observable<CatData> {
-        return catRepository.getCat()
-    }
+    fun loadCat(): Observable<CatData> = catRepository.getCat()
 
-    fun loadCats(): Observable<CatsData>{
-        return catRepository.getCats()
-    }
+    fun loadCats(): Observable<CatsData> = catRepository.getCats()
 
     override fun onCleared() {
         super.onCleared()
