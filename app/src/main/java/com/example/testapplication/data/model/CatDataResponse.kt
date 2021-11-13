@@ -1,9 +1,10 @@
 package com.example.testapplication.data.model
 
-import com.google.gson.annotations.SerializedName
-import java.io.Serializable
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class CatDataResponse(
-    @SerializedName("fact") val fact : String? = null,
-    @SerializedName("length") val length : Int? = null,
-): Serializable
+    @SerialName("fact") val fact : String? = null,
+    @SerialName("length") val length : Int? = null,
+)
