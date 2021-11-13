@@ -3,7 +3,7 @@ package com.example.testapplication.data.local
 import android.content.Context
 import java.lang.NullPointerException
 
-class PreferenceManager(context: Context) {
+class LocalFactManager(context: Context) {
     private val preferences = context.getSharedPreferences("prefs", Context.MODE_PRIVATE)
     private val facts = "facts"
     val hasFacts get() = this.preferences.contains(this.facts)
