@@ -3,6 +3,7 @@ package com.example.testapplication.ui.facts.favorites
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.testapplication.R
 import com.example.testapplication.entity.model.CatData
 import com.example.testapplication.ui.facts.common.RecyclerAdapter
@@ -24,11 +25,16 @@ class FavoritesActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        val subscriber = viewModel.loadLocalCats().subscribe { facts ->
-            list.clear()
-            list.addAll(facts.map { CatData(it, 0) })
-            recycler.adapter = RecyclerAdapter(list, ::onItemClick)
-        }
+        val subscriber = viewModel.loadLocalCats().subscribe(
+            { facts ->
+                list.clear()
+                list.addAll(facts.map { CatData(it, 0) })
+                recycler.adapter = RecyclerAdapter(list, ::onItemClick)
+            },
+            { error ->
+                Toast.makeText(this, error.message, Toast.LENGTH_LONG).show()
+            }
+        )
 
         compositeDisposable.add(subscriber)
     }
