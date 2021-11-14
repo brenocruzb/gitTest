@@ -3,6 +3,7 @@ package com.example.testapplication.di
 import com.example.testapplication.data.local.LocalFactManager
 import com.example.testapplication.data.rest.CatApi
 import com.example.testapplication.data.rest.CatRepository
+import com.example.testapplication.ui.facts.details.FactDetailViewModel
 import com.example.testapplication.ui.facts.favorites.FavoritesViewModel
 import com.example.testapplication.ui.facts.list.MainViewModel
 import com.google.gson.GsonBuilder
@@ -34,6 +35,10 @@ val mainViewModelModule = module {
 
 val favoritesViewModelModule = module {
     factory { FavoritesViewModel(get()) }
+}
+
+val detailViewModelModule = module {
+    factory { FactDetailViewModel(get()) }
 }
 
 fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {

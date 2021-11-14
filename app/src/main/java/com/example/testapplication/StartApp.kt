@@ -16,7 +16,8 @@ class StartApp: Application() {
                 localModule,
                 catRepositoryModule,
                 mainViewModelModule,
-                favoritesViewModelModule
+                favoritesViewModelModule,
+                detailViewModelModule
             ))
         }
     }
