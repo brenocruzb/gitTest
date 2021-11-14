@@ -1,4 +1,4 @@
-package com.example.testapplication.ui.facts.list
+package com.example.testapplication.ui.facts.common
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,14 +11,14 @@ import com.example.testapplication.entity.model.CatData
 import kotlinx.android.synthetic.main.card_layout.view.*
 
 class RecyclerAdapter(private val list: List<CatData>, private val clickListener: (Int) -> Unit) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_layout, parent, false)
         return ViewHolder(view)
     }
 
     override fun getItemCount(): Int = list.size
 
-    override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
             val context = itemView.context
             itemDetail.text = list[position].fact
