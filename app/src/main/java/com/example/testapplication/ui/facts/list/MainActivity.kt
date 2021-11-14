@@ -8,6 +8,7 @@ import android.view.MenuItem
 import androidx.core.view.isVisible
 import com.example.testapplication.R
 import com.example.testapplication.entity.model.CatData
+import com.example.testapplication.ui.facts.common.RecyclerAdapter
 import com.example.testapplication.ui.facts.details.FactDetailActivity
 import com.example.testapplication.ui.facts.favorites.FavoritesActivity
 import com.example.testapplication.utils.Params
@@ -61,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         compositeDisposable.clear()
     }
 
-    fun onItemClick(position: Int) {
+    private fun onItemClick(position: Int) {
         val intent = Intent(this, FactDetailActivity::class.java)
         intent.putExtra(Params.FACT, list[position])
         startActivity(intent)
