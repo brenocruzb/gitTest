@@ -8,7 +8,6 @@ import com.example.testapplication.ui.facts.favorites.FavoritesViewModel
 import com.example.testapplication.ui.facts.list.MainViewModel
 import com.example.testapplication.ui.listItems.MainViewModel
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
@@ -50,7 +49,6 @@ fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
     return Retrofit.Builder()
         .baseUrl("https://catfact.ninja/")
         .client(okHttpClient)
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(json.asConverterFactory(contentType))
         .build()
 }
