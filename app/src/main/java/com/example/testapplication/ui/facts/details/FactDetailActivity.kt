@@ -21,6 +21,11 @@ class FactDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_fact_detail)
         setSupportActionBar(toolbar)
 
+        supportActionBar?.let {
+            it.setDisplayHomeAsUpEnabled(true)
+            it.setDisplayShowHomeEnabled(true)
+        }
+
         val fact = intent.getSerializableExtra(Params.FACT) as? CatData
         fact?.let {
             factText.text = fact.fact
