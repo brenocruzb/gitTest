@@ -15,9 +15,9 @@ class FactDetailViewModel(private val localFacts: LocalFactManager): ViewModel()
                 localFacts.setFacts(list)
 
                 emitter.onNext("Sucesso!")
-                emitter.onComplete()
             } catch (ex: Exception) {
                 emitter.onError(ex)
+            } finally {
                 emitter.onComplete()
             }
         }
