@@ -6,7 +6,6 @@ import com.example.testapplication.data.rest.CatRepository
 import com.example.testapplication.ui.facts.details.FactDetailViewModel
 import com.example.testapplication.ui.facts.favorites.FavoritesViewModel
 import com.example.testapplication.ui.facts.list.MainViewModel
-import com.example.testapplication.ui.listItems.MainViewModel
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType
