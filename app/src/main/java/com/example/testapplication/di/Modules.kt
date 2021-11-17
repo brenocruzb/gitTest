@@ -1,12 +1,14 @@
 package com.example.testapplication.di
 
+import com.example.testapplication.data.local.LocalFactManager
 import com.example.testapplication.data.rest.CatApi
 import com.example.testapplication.data.rest.CatRepository
-import com.example.testapplication.ui.listItems.MainViewModel
+import com.example.testapplication.ui.facts.details.FactDetailViewModel
+import com.example.testapplication.ui.facts.favorites.FavoritesViewModel
+import com.example.testapplication.ui.facts.list.MainViewModel
 import com.google.gson.GsonBuilder
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 //import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import kotlinx.serialization.json.Json
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
@@ -19,12 +21,24 @@ val networkModule = module {
     single { provideRetrofit(get()) }
 }
 
+val localModule = module {
+    single { LocalFactManager(get()) }
+}
+
 val catRepositoryModule = module {
     factory { CatRepository(get()) }
 }
 
 val mainViewModelModule = module {
     factory { MainViewModel(get()) }
+}
+
+val favoritesViewModelModule = module {
+    factory { FavoritesViewModel(get()) }
+}
+
+val detailViewModelModule = module {
+    factory { FactDetailViewModel(get()) }
 }
 
 fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
