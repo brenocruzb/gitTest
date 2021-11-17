@@ -1,11 +1,12 @@
 package com.example.testapplication.data.model
 
-import com.google.gson.annotations.SerializedName
-import java.io.Serializable
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class CatsDataResponse(
-    @SerializedName("current_page") val currentPage : Int? = null,
-    @SerializedName("data") val data : List<CatDataResponse>? = null,
-    @SerializedName("total") val total : Int? = null,
-    @SerializedName("last_page") val lastPage : Int? = null,
-): Serializable
+    @SerialName("current_page") val currentPage : Int? = null,
+    @SerialName("data") val data : List<CatDataResponse>? = null,
+    @SerialName("total") val total : Int? = null,
+    @SerialName("last_page") val lastPage : Int? = null,
+)
